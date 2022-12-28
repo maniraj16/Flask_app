@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display data</title>
+    <style>
+        body{
+            background-color: lightblue;
+        }
+        h1{
+            text-align:center;
+            font-family: lucida handwriting, cursive; 
+        }
+        div{
+            align: center;
+        }
+        table{
+            width: 40%;
+            margin: 0 auto;
+            border: solid 3px black;
+            background-color: aliceblue;
+            font-size: 25px;
+            border-collapse: collapse;
+            padding-left: 50%;
+        }
+        th, td {
+            padding-left: 6px;
+            border: solid 2px black;
+        }
+        p{
+            padding-top: 50px;
+            padding-left: 45%;
+        }
+        input{
+            background-color: aliceblue;
+            border-width: 3px;
+            font-size: 18px;
+            cursor: pointer;
+            word-spacing: 3px;
+        }
+        input:hover{
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>STUDENT RECORDS</h1>
+    <form action={{url_for("home")}} method="post">
+        <div>
+            <table>
+            {% for d in data %}
+            <tr>
+                {% for key, value in d.items() %}
+                    <th>{{key}}</th>
+                    <td>{{value}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </table>
+        </div>
+        <p><input type="submit" value="Go to home"></p>
+    </form>
+</body>
+</html>
